@@ -1,0 +1,8 @@
+{
+  "item.totem.use": {
+    "category": "player",
+    "sounds": [
+      "item/use_totem"
+    ]
+  }
+}

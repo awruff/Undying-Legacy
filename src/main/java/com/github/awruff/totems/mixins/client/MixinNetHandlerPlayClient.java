@@ -32,7 +32,7 @@ public class MixinNetHandlerPlayClient {
             minecraft.particleManager.addEmitter(entity, ParticleType.CRIT_MAGIC);
             minecraft.particleManager.addEmitter(entity, ParticleType.CRIT_MAGIC);
 
-            // TODO: Add Totem Sound (I have no clue how)
+            world.playSound(entity.x, entity.y, entity.z, "undyinglegacy:item.totem.use", 1.0f, 1.0f, false);
 
             if (entity == minecraft.player) {
                 RenderUtils.activateItem(new ItemStack(ModItems.TOTEM));
