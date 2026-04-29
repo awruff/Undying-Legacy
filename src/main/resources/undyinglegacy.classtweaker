@@ -1,0 +1,12 @@
+classTweaker v2 named
+
+accessible field net/minecraft/client/entity/particle/AnimatedParticle velocityX I
+mutable field net/minecraft/client/entity/particle/AnimatedParticle velocityX I
+
+accessible field net/minecraft/client/entity/particle/AnimatedParticle velocityY I
+mutable field net/minecraft/client/entity/particle/AnimatedParticle velocityY I
+
+accessible field net/minecraft/client/entity/particle/AnimatedParticle velocityZ F
+mutable field net/minecraft/client/entity/particle/AnimatedParticle velocityZ F
+
+extend-enum net/minecraft/entity/particle/ParticleType UNDYING_LEGACY_TOTEM

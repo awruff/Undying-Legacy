@@ -1,9 +1,9 @@
 package com.github.awruff.totems.utils;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.platform.Lighting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.model.block.ModelTransformations;
+import net.minecraft.client.render.platform.GlStateManager;
+import net.minecraft.client.render.platform.Lighting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 
@@ -58,7 +58,7 @@ public class RenderUtils {
         GlStateManager.rotatef(6.0F * MathHelper.cos(progress * 8.0F), 1.0F, 0.0F, 0.0F);
         GlStateManager.rotatef(6.0F * MathHelper.cos(progress * 8.0F), 0.0F, 0.0F, 1.0F);
 
-        mc.getItemRenderer().renderHeldItem(activatedItem, ModelTransformations.Type.FIXED);
+        mc.getItemRenderer().renderItemInHand(activatedItem, ModelTransformations.Type.FIXED);
 
         GlStateManager.popAttributes();
         GlStateManager.popMatrix();

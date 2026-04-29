@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Item.class)
-public abstract class MixinItem {
+abstract class MixinItem {
 
     @Shadow
     private static void register(int id, String key, Item item) {

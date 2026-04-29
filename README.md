@@ -14,8 +14,4 @@ You can craft a Totem of Undying using the recipe below.
 
 ![Crafting.png](assets/Crafting.png)
 
-### Note
-- No sound effect plays when the totem activates.
-- Activation particles are temporarily replaced with Critical Hit particles.
-
 ---

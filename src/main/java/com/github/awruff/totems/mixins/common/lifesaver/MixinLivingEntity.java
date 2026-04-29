@@ -19,13 +19,10 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(LivingEntity.class)
-public abstract class MixinLivingEntity extends Entity {
-    public MixinLivingEntity(World world) {
+abstract class MixinLivingEntity extends Entity {
+    private MixinLivingEntity(World world) {
         super(world);
     }
-
-    @Shadow
-    public abstract ItemStack getHandStack(InteractionHand hand);
 
     @Shadow
     public abstract void setHealth(float amount);
@@ -37,11 +34,14 @@ public abstract class MixinLivingEntity extends Entity {
     public abstract void addStatusEffect(StatusEffectInstance instance);
 
     @Shadow
-    public abstract void setHandStack(InteractionHand hand, ItemStack stack);
+    public abstract ItemStack getItemInHand(InteractionHand hand);
+
+    @Shadow
+    public abstract void setItemInHand(InteractionHand hand, ItemStack item);
 
     @Definition(id = "getHealth", method = "Lnet/minecraft/entity/living/LivingEntity;getHealth()F")
     @Expression("this.getHealth() <= 0.0")
-    @ModifyExpressionValue(method = "damage", at = @At("MIXINEXTRAS:EXPRESSION"))
+    @ModifyExpressionValue(method = "takeDamage", at = @At("MIXINEXTRAS:EXPRESSION"))
     private boolean shouldDie(boolean original, @Local(argsOnly = true) DamageSource source) {
         return original && !popsTotem(source);
     }
@@ -53,14 +53,14 @@ public abstract class MixinLivingEntity extends Entity {
         ItemStack item = null;
 
         for (InteractionHand hand : InteractionHand.values()) {
-            ItemStack heldStack = getHandStack(hand);
+            ItemStack heldStack = getItemInHand(hand);
 
             if (heldStack != null && heldStack.getItem() == ModItems.TOTEM) {
                 item = heldStack.copy();
                 heldStack.size -= 1;
 
                 if (heldStack.size <= 0) {
-                    setHandStack(hand, null);
+                    setItemInHand(hand, null);
                 }
 
                 break;

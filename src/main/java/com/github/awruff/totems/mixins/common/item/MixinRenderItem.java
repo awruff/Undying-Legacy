@@ -1,7 +1,7 @@
 package com.github.awruff.totems.mixins.common.item;
 
 import com.github.awruff.totems.item.ModItems;
-import net.minecraft.client.render.item.ItemRenderer;
+import net.minecraft.client.render.entity.ItemRenderer;
 import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemRenderer.class)
-public abstract class MixinRenderItem {
+abstract class MixinRenderItem {
     @Shadow
     protected abstract void registerModel(Item item, String key);
 

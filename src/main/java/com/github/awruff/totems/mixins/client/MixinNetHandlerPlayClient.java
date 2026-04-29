@@ -28,9 +28,7 @@ public class MixinNetHandlerPlayClient {
         if (event == 35) { // 35 is the event in modern, so we just use that here :shrug:
 
             // TODO: Add Totem Particles (will require ASM, spooky)
-            minecraft.particleManager.addEmitter(entity, ParticleType.CRIT_MAGIC);
-            minecraft.particleManager.addEmitter(entity, ParticleType.CRIT_MAGIC);
-            minecraft.particleManager.addEmitter(entity, ParticleType.CRIT_MAGIC);
+            minecraft.particleManager.addEmitter(entity, ParticleType.UNDYING_LEGACY_TOTEM);
 
             world.playSound(entity.x, entity.y, entity.z, "undyinglegacy:item.totem.use", 1.0f, 1.0f, false);
 

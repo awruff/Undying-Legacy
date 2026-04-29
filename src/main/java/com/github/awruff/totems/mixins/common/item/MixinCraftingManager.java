@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CraftingManager.class)
-public abstract class MixinCraftingManager {
+abstract class MixinCraftingManager {
     @Shadow
     public abstract ShapedRecipe registerShaped(ItemStack result, Object... args);
 

@@ -1,14 +1,15 @@
 {
-  "required": true,
-  "package": "com.github.awruff.totems.mixins.common",
-  "compatibilityLevel": "JAVA_8",
-  "mixinextras": {
-    "minVersion": "0.5.0"
-  },
-  "mixins": [
-    "item.MixinCraftingManager",
-    "item.MixinItem",
-    "item.MixinRenderItem",
-    "lifesaver.MixinLivingEntity"
-  ]
+    "required": true,
+    "package": "com.github.awruff.totems.mixins.common",
+    "compatibilityLevel": "JAVA_8",
+    "mixinextras": {
+        "minVersion": "0.5.0"
+    },
+    "mixins": [
+        "item.MixinCraftingManager",
+        "item.MixinItem",
+        "item.MixinRenderItem",
+        "lifesaver.MixinLivingEntity", "particle.MixinParticleType"
+    ],
+    "client": ["particle.MixinParticleManager"]
 }
